@@ -1,0 +1,16 @@
+%h1 ADB Web Interface
+#forms
+  %form#install_package(method="POST")
+    %input#package(type="text" name="package")
+    %input#submit(type="submit" value="Install")
+
+%ul#actions
+
+%pre#console
+  %span.console-text
+
+#spinner-container
+  %img#spinner(src="/spinner.gif")
+
+
+%script(src="/adb_web_interface.js")

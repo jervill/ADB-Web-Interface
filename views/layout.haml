@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %style * {font-family: 'Lucida Grande', Helvetica, sans-serif;padding:10px;margin:0px;} h2 {font-size:300px;}
+    :css
+      #console { background-color: #000;
+               border-radius: 8px;
+               padding: 8px 8px 100px;
+               overflow: scroll;
+               position: absolute;
+               left: 40%;
+               top: 1%;
+               height: 92%;
+               width: 58%;
+               }
+       .console-text { font-family: "Courier New", Courier, monospace;
+                       color: #FFFFFF;
+                       font-size: 0.8em;
+                       padding: 2px;
+       }
+
+       #spinner-container { position: fixed;
+                            background-color: #000;
+                            left: 0px;
+                            right: 0px;
+                            top: 0px;
+                            bottom: 0px;
+
+                            opacity: 0.5;
+                            z-index: 1;
+       }
+
+       #spinner { position: fixed;
+                  top: 50%;
+                  left: 50%;
+                  margin: -64px 0 0 -64px;
+       }
+
+    %title ADB Interfaces
+
+  %body
+    = yield
