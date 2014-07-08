@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'JSON'
 
 get '/' do
   haml :index
@@ -10,7 +11,9 @@ end
 # todo: Update this to move to the directory where ADB is located, in case it isn't in the PATH.
 
 post '/run_command' do
-  # Execute the command.
-  `#{params[:path_to_ADB]}#{params[:command]}`
+  # Parse the request body as JSON
+  parsed_request = JSON.parse(request.body.read)
 
+  # Execute the command.
+  `#{parsed_request["path_to_ADB"]}#{parsed_request["command"]}`
 end

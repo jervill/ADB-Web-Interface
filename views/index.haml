@@ -1,16 +1,23 @@
-%h1 ADB Web Interface
-#forms
-  %form#install_package(method="POST")
-    %input#package(type="text" name="package")
-    %input#submit(type="submit" value="Install")
+!!!
+%html(data-ng-app = "adbWebInterface")
 
-%ul#actions
+  %body(data-ng-controller="SettingsController")
+    %h1 ADB Web Interface
 
-%pre#console
-  %span.console-text
+    %div
+      %form#install_package(method="POST" data-ng-submit="installPackage($event)")
+        %input#package(type="text" name="package" data-ng-model="packageName")
+        %input#submit(type="submit" value="Install")
 
-#spinner-container
-  %img#spinner(src="/spinner.gif")
+      %ul
+        // id according to the name in .json
+        %li(data-ng-repeat="item in commands" data-ng-click="submitCommand($event)" id="{{ item.name }}" data-ng-cloak) {{ item.description }}
 
 
-%script(src="/adb_web_interface.js")
+      %pre#console
+        %span.console-text
+          %pre.console-text(data-ng-repeat="(key, value) in history track by key" data-ng-cloak)  {{ key | date:'MMM d, yyyy h:mm:ss.sss a'}}:</br>{{ value }}
+
+
+    #spinner-container(data-ng-show="loading")
+      %img#spinner(src="/spinner.gif")

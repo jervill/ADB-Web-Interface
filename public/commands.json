@@ -1,0 +1,44 @@
+[
+    {
+        "name": "list_devices",
+        "type_of_request": "action",
+        "description": "Get a list of attached android devices",
+        "progress_text": "Listing attached devices...",
+        "command": "adb devices"
+    },
+    {
+        "name": "list_packages",
+        "type_of_request": "action",
+        "description": "List all installed packages",
+        "progress_text": "Listing all installed packages...",
+        "command": "adb shell pm list packages"
+    },
+    {
+        "name": "list_xyz_packages",
+        "type_of_request": "action",
+        "description": "List all packages published by XYZ",
+        "progress_text": "Listing all installed XYZ packages...",
+        "command": "adb shell pm list packages | grep xyz"
+    },
+    {
+        "name": "uninstall_xyz_camera",
+        "type_of_request": "action",
+        "description": "Uninstall the XYZ Camera app",
+        "progress_text": "Uninstalling XYZ PDF Reader...",
+        "command": "adb uninstall com.xyz.pdfreader"
+    },
+    {
+        "name": "uninstall_xyz_sound_recorder",
+        "type_of_request": "action",
+        "description": "Uninstall the XYZ Sound Recoder app",
+        "progress_text": "Uninstalling XYZ Sound Recorder...",
+        "command": "adb uninstall com.xyz.soundrecorder"
+    },
+    {
+        "name": "push_bootstrap",
+        "type_of_request": "action",
+        "description": "Push bootstrap file to sdcard",
+        "progress_text": "Pushing bootstrap file...",
+        "command": "adb push /Users/me/Documents/Android/bootstrap-stage /sdcard/bootstrap"
+    }
+]
